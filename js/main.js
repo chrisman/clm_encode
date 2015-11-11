@@ -83,7 +83,7 @@ var addZed = function(x, len){
   var addPoint = 8;
   for(var i = 0; i < x.length; i++){
     addPoint = Math.floor(Math.random() * len);
-    while (addPoint === 8) {
+    while (addPoint === 8 || addPoint === 0) {
       addPoint = Math.floor(Math.random() * len);
     }
     console.log(addPoint);
