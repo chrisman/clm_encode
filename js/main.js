@@ -1,11 +1,11 @@
 /*
 TODO
 ====
-3. addZed.
 4. Then, buildMundaneWords
 
 Done
 ====
+3. addZed.
 1. monospace font, please?
 you never made sure the special char is at col 8.
 buildSpecialWords =
@@ -21,8 +21,7 @@ $(document).ready(function(){
     $input = $input.split('');
     $input = addEightLeft($input);
     $input = insertLettersRight($input, wordLength);
-    //$input = addZed($input);
-
+    $input = addZed($input, wordLength);
     getWords($input, numberOfWords);
     lengthenWords($input, wordLength);
     $input = getVerticle($input);
@@ -32,7 +31,7 @@ $(document).ready(function(){
 
 var insertLettersRight = function(list, len){
   for (var i = 0; i < list.length; i++){
-    for (var j = 0; j < len; j++){
+    for (var j = 0; j < (len - 9); j++){
       list[i] += getRandomChar();
     }
   }
@@ -78,10 +77,19 @@ var getRandomChar = function(){
   return chars.charAt(Math.floor(Math.random() * chars.length));
 };
 
-var addZed = function(x){
-  
-  for (var i = 0; i < x.length; i++){
-    x[i] += 'Z';
+var addZed = function(x, len){
+  console.log(x);
+  console.log(len);
+  var addPoint = 8;
+  for(var i = 0; i < x.length; i++){
+    addPoint = Math.floor(Math.random() * len);
+    while (addPoint === 8) {
+      addPoint = Math.floor(Math.random() * len);
+    }
+    console.log(addPoint);
+    console.log(x[i]);
+    x[i] = x[i].slice(0,addPoint-1) + 'Z' + x[i].slice(addPoint);
+    console.log(x[i]);
   }
   return x;
-};
+}
