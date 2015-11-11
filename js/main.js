@@ -1,3 +1,18 @@
+/*
+TODO
+====
+1. monospace font, please?
+3. addZed.
+4. Then, buildMundaneWords
+
+Done
+====
+you never made sure the special char is at col 8.
+buildSpecialWords =
+  1. insertEightLeft,
+  2. insertLettersRight,
+*/
+
 $(document).ready(function(){
   $('button').on('click', function(){
     $input = $('input').val().toUpperCase();
@@ -7,11 +22,11 @@ $(document).ready(function(){
     $input = addEightLeft($input);
     $input = insertLettersRight($input, wordLength);
     //$input = addZed($input);
-    // TODO you never made sure the special char is at col 8. buildSpecialWords = 1. insertEightLeft, 2. insertLettersRight, 3. addZed. Then, buildMundaneWords
+
     getWords($input, numberOfWords);
     lengthenWords($input, wordLength);
     $input = getVerticle($input);
-    $('section').html($input);
+    $('.output').html($input);
   });
 });
 
