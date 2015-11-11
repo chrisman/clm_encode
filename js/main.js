@@ -1,12 +1,12 @@
 /*
 TODO
 ====
-1. monospace font, please?
 3. addZed.
 4. Then, buildMundaneWords
 
 Done
 ====
+1. monospace font, please?
 you never made sure the special char is at col 8.
 buildSpecialWords =
   1. insertEightLeft,
@@ -79,6 +79,7 @@ var getRandomChar = function(){
 };
 
 var addZed = function(x){
+  
   for (var i = 0; i < x.length; i++){
     x[i] += 'Z';
   }
